@@ -45,6 +45,17 @@ body {
   text-align: center;
 }
 
+.login .success-message {
+  color: #2ecc71;
+  background-color: #d4f6e6;
+  border: 1px solid #a3e4c9;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  width: 300px;
+  text-align: center;
+}
+
 .login form {
   display: flex;
   flex-direction: column;
@@ -85,4 +96,368 @@ body {
 .login form button:disabled {
   background-color: #a0a0a0;
   cursor: not-allowed;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #4a90e2;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+.dashboard-container {
+  display: flex;
+  flex: 1;
+}
+
+.dashboard-sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e9ecef;
+  padding: 1.5rem 0;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-sidebar li {
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-sidebar li.active {
+  background-color: #e3f2fd;
+  border-left: 4px solid #4a90e2;
+}
+
+.dashboard-sidebar a {
+  color: #495057;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+
+.dashboard-sidebar li.active a {
+  color: #4a90e2;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.dashboard-content h1 {
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-card h3 {
+  color: #6c757d;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+.policies-container {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.policies-container h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.policies-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.policies-table th,
+.policies-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.policies-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.review {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.btn-view, .btn-edit {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-view {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* ADMIN STYLES */
+.admin {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #4a90e2;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #343a40;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.admin-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-button {
+  padding: 0.5rem 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-container {
+  display: flex;
+  flex: 1;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: #212529;
+  padding: 1.5rem 0;
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-sidebar li {
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-sidebar li.active {
+  background-color: #343a40;
+  border-left: 4px solid #4a90e2;
+}
+
+.admin-sidebar a {
+  color: #adb5bd;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+
+.admin-sidebar li.active a {
+  color: white;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.admin-content h1 {
+  margin-bottom: 2rem;
+  color: #343a40;
+}
+
+.admin-content h2 {
+  margin-bottom: 1rem;
+  color: #343a40;
+}
+
+.user-management {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.users-table th,
+.users-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.users-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.btn-edit-user,
+.btn-delete-user {
+  padding: 0.35rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-edit-user {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.btn-delete-user {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete-user:disabled {
+  background-color: #6c757d;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
 }

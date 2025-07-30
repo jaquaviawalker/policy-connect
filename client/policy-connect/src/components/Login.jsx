@@ -1,14 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const Login = () => {
+export const Login = ({ message }) => {
     const [formData, setFormData] = useState({
         username: '',
         password: ''
     });
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState(message || '');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    
+    // Clear success message after 5 seconds
+    useEffect(() => {
+        if (success) {
+            const timer = setTimeout(() => {
+                setSuccess('');
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [success]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -75,6 +86,7 @@ export const Login = () => {
         <div className="login">
             <h2>Login</h2>
             {error && <div className="error-message">{error}</div>}
+            {success && <div className="success-message">{success}</div>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="username">Username</label>
