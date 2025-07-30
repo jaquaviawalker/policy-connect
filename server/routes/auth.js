@@ -56,7 +56,7 @@ router.post('/register', [
 
 /**
  * @route   POST /api/auth/login
- * @desc    Login user (TC04, TC05, TC06, TC10)
+ * @desc    Login user (TC04, TC05, TC06)
  * @access  Public
  */
 router.post('/login', [
@@ -71,7 +71,7 @@ router.post('/login', [
 
     const { username, password } = req.body;
 
-    // Safe handling of SQL injection (TC10) - Using parameterized queries
+    // Using parameterized queries for security
     const user = await pool.query(
       'SELECT * FROM users WHERE username = $1',
       [username]
@@ -123,6 +123,43 @@ router.get('/check', (req, res) => {
   // For TC07, we'll simulate the user always being logged in
   // In a real app with no auth, you would handle this differently
   return res.status(200).json({ message: "Access granted" });
+});
+
+/**
+ * @route   DELETE /api/auth/delete/:userId
+ * @desc    Delete user account (TC10)
+ * @access  Public
+ */
+router.delete('/delete/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    
+    // First check if the user exists
+    const userCheck = await pool.query(
+      'SELECT * FROM users WHERE id = $1',
+      [userId]
+    );
+    
+    if (userCheck.rows.length === 0) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    
+    // Simply delete the user from the database
+    await pool.query(
+      'DELETE FROM users WHERE id = $1',
+      [userId]
+    );
+    
+    // Success response
+    res.status(200).json({
+      message: "Account deleted successfully",
+      redirectTo: "/login"
+    });
+    
+  } catch (err) {
+    console.error('Account deletion error:', err);
+    res.status(500).json({ error: "Server error during account deletion" });
+  }
 });
 
 module.exports = router;
