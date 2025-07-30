@@ -3,10 +3,14 @@ const app = express();
 const PORT = process.env.PORT || 3000; 
 const pool = require('./db');
 const routes = require('./routes');
+const cors = require('cors')
+
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors())
+
 
 // Test database connection
 app.get('/db-test', async (req, res) => {

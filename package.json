@@ -10,6 +10,7 @@
     "init-db": "node server/scripts/init-db.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
     "node": "^20.19.4",
